@@ -9,6 +9,9 @@ import { ImageBubbleMenu } from './components/image-bubble-menu';
 import { SpacerBubbleMenu } from './components/spacer-bubble-menu';
 import { extensions as defaultExtensions } from './extensions';
 import { cn } from './utils/classname';
+import { setLanguageTag } from "../paraglide/runtime"
+import { useEffect } from 'react';
+
 
 export type EditorProps = {
   contentHtml?: string;
@@ -26,6 +29,7 @@ export type EditorProps = {
     bodyClassName?: string;
     autofocus?: FocusPosition;
   };
+  lang: 'es' | 'en';
 };
 
 export function Editor(props: EditorProps) {
@@ -102,10 +106,17 @@ export function Editor(props: EditorProps) {
     content: formattedContent,
     autofocus,
   });
+  
+  useEffect(() => {
+    setLanguageTag(props.lang)
+  }, [props.lang])
 
   if (!editor) {
     return null;
   }
+
+  
+
 
   return (
     <div className={cn('mly-editor mly-antialiased', wrapClassName)}>

@@ -27,6 +27,8 @@ import {
 import tippy, { GetReferenceClientRect } from 'tippy.js';
 
 import { cn } from '@/editor/utils/classname';
+import * as m from "../../paraglide/messages"
+
 
 interface CommandItemProps {
   title: string;
@@ -70,10 +72,11 @@ const Command = Extension.create({
 });
 
 const getSuggestionItems = ({ query }: { query: string }) => {
+   
   return [
     {
       title: 'Text',
-      description: 'Just start typing with plain text.',
+      description: m.slashCommandTextDescription(),
       searchTerms: ['p', 'paragraph'],
       icon: <Text className="mly-h-4 mly-w-4" />,
       command: ({ editor, range }: CommandProps) => {

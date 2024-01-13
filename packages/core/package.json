@@ -24,7 +24,10 @@
   "scripts": {
     "dev": "tsup --watch",
     "clean": "rm -rf dist",
-    "build": "tsup"
+    "build": "paraglide-js compile --project ./project.inlang && tsup",
+    "postinstall": "paraglide-js compile --project ./project.inlang",
+    "compile": "paraglide-js compile --project ./project.inlang",
+		"watch": "paraglide-js compile --project ./project.inlang --watch"
   },
   "repository": {
     "type": "git",
@@ -74,7 +77,8 @@
     "postcss": "^8.4.32",
     "tailwind-config": "workspace:*",
     "tsconfig": "workspace:*",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@inlang/paraglide-js": "1.1.1"
   },
   "peerDependencies": {
     "react": "18.2.0"

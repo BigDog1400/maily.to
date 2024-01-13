@@ -1,6 +1,9 @@
 {
   "extends": "tsconfig/react-library.json",
+
   "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
